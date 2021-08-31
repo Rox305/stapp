@@ -12,9 +12,8 @@ import os
 from PIL import Image
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
-import en_core_web_sm
 
-nlp = en_core_web_sm.load()
+# nlp = en_core_web_sm.load()
 
 
 from tensorflow.keras.models import load_model
@@ -52,7 +51,7 @@ def sim_docs(text, data, th=.5):
 
 texto = st.text_input("Enter text:")
 
-st.title("Named Entity Recognition")
-docx = nlp(texto)
-spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels)
+# st.title("Named Entity Recognition")
+# docx = nlp(texto)
+# spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels)
 
