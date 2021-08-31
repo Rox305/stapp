@@ -29,7 +29,7 @@ st.write("""
 """)
 
 db = pd.read_csv('Data_clusters_sin.csv')
-vv = model(db['texto'])
+# vv = model(db['texto'])
 # vv = np.load('vectores')
 # nlp = spacy.load('en_core_web_sm')
 # nlp = en_core_web_sm.load()
@@ -50,6 +50,8 @@ def sim_docs(text, data, th=.5):
   return md
 
 texto = st.text_input("Enter text:")
+
+st.write(model[texto])
 
 # st.title("Named Entity Recognition")
 # docx = nlp(texto)
