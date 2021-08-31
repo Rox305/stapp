@@ -34,7 +34,7 @@ db = pd.read_csv('Data_clusters_sin.csv')
 # nlp = spacy.load('en_core_web_sm')
 # nlp = en_core_web_sm.load()
 
-# texto = ['Malaria has killed millions in Africa']
+text = ['Malaria has killed millions in Africa']
 
 
 def angular_similarity(emb1, emb2):
@@ -51,7 +51,7 @@ def sim_docs(text, data, th=.5):
 
 texto = st.text_input("Enter text:")
 
-st.write(model[texto])
+model[text]
 
 # st.title("Named Entity Recognition")
 # docx = nlp(texto)
