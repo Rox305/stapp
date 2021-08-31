@@ -18,7 +18,6 @@ from tensorflow.keras.models import load_model
 module_url = "https://tfhub.dev/google/universal-sentence-encoder/4" 
 model = hub.load(module_url)
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.title("Text Categorization")
 
@@ -27,7 +26,7 @@ st.write("""
 """)
 
 db = pd.read_csv('Data_clusters_sin.csv')
-vv = model(db['texto'])
+# vv = model(db['texto'])
 # vv = np.load('vectores')
 nlp = spacy.load('en_core_web_sm')
 # texto = ['Malaria has killed millions in Africa']
@@ -46,28 +45,6 @@ def sim_docs(text, data, th=.5):
   return md
 
 texto = st.text_input("Enter text:")
-
-if texto!='':
-    distancias = sim_docs(model([texto]), vv)
-
-    a = np.argsort(distancias)
-
-# maxi = st.number_input("Enter number of similar documents:",min_value=1, max_value=10, value=3, step=1)
-    wtext=[]
-    for i in range(1,6):
-        wtext.append(db.iloc[a[-1]]['texto'])
-        pp = round(db.iloc[a[-i]]['perc'],2)
-        if pp>.6:
-         st.write(db.iloc[a[-i]]['clas'], db.iloc[a[-i]]['subclas'])
-    # st.write(db.iloc[a[-i]]['subclas'])
-         st.write(pp)
-    wtext = list(set(wtext))
-    wtext = ' '.join([str(t) for t in wtext])
-    # word_cloud = WordCloud(collocations = False, background_color = 'white').generate(wtext)
-    # plt.imshow(word_cloud, interpolation='bilinear')
-    # plt.axis("off")
-    # plt.show()
-    # st.pyplot()
 
 st.title("Named Entity Recognition")
 docx = nlp(texto)
