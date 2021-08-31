@@ -1,8 +1,8 @@
-spacy_streamlit==1.0.2
+spacy_streamlit
 en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
 pandas
 tensorflow==2.4.1
-spacy==2.3.5
+spacy
 matplotlib==3.4.2
 streamlit==0.87.0
 wordcloud==1.8.1
