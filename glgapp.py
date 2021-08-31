@@ -12,6 +12,9 @@ import os
 from PIL import Image
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+import en_core_web_sm
+
+nlp = en_core_web_sm.load()
 
 
 from tensorflow.keras.models import load_model
@@ -29,7 +32,7 @@ st.write("""
 db = pd.read_csv('Data_clusters_sin.csv')
 # vv = model(db['texto'])
 # vv = np.load('vectores')
-nlp = spacy.load('en_core_web_sm')
+# nlp = spacy.load('en_core_web_sm')
 # nlp = en_core_web_sm.load()
 
 # texto = ['Malaria has killed millions in Africa']
