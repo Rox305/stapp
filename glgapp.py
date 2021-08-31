@@ -5,6 +5,7 @@ import tensorflow_hub as hub
 import numpy as np
 import pandas as pd
 
+import en_core_web_sm
 import spacy_streamlit
 import spacy
 import os
@@ -28,7 +29,9 @@ st.write("""
 db = pd.read_csv('Data_clusters_sin.csv')
 # vv = model(db['texto'])
 # vv = np.load('vectores')
-nlp = spacy.load('en_core_web_sm')
+# nlp = spacy.load('en_core_web_sm')
+nlp = en_core_web_sm.load()
+
 # texto = ['Malaria has killed millions in Africa']
 
 
