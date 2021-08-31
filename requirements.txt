@@ -1,4 +1,5 @@
 spacy_streamlit==1.0.2
+en_core_web_sm
 pandas
 tensorflow==2.4.1
 spacy==3.1.2
