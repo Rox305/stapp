@@ -10,7 +10,7 @@ import spacy_streamlit
 import spacy
 import os
 from PIL import Image
-from wordcloud import WordCloud
+# from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 # nlp = en_core_web_sm.load()
