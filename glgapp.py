@@ -45,15 +45,15 @@ if texto!='':
 
     # distancias = sim_docs(model([texto]), vv)
 
-    a = np.argsort(distance_matrix)
+    a = np.argsort(distance_matrix,0)
 
 # maxi = st.number_input("Enter number of similar documents:",min_value=1, max_value=10, value=3, step=1)
     wtext=[]
     for i in range(1,6):
-        wtext.append(db.iloc[a[-1]]['article'])
-        # pp = round(db.iloc[a[-i]]['perc'],2)
+        wtext.append(db.iloc[int(a[-1])]['article'])
+        # pp = round(db.iloc[int(a[-i])]['perc'],2)
         # if pp>.6:
-        st.write(db.iloc[a[-i]]['descr'])
+        st.write(db.iloc[int(a[-i])]['descr'])
     # st.write(db.iloc[a[-i]]['subclas'])
         #  st.write(pp)
     # wtext = list(set(wtext))
