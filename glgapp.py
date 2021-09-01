@@ -1,6 +1,6 @@
 import streamlit as st
 
-import tensorflow as tf
+# import tensorflow as tf
 import numpy as np
 import pandas as pd
 import sklearn 
@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import spacy_streamlit
 import spacy
-import os
+# import os
 # from PIL import Image
 # from wordcloud import WordCloud
 # import matplotlib.pyplot as plt
