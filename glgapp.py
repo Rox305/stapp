@@ -9,9 +9,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 import spacy_streamlit
 import spacy
 # import os
-# from PIL import Image
-# from wordcloud import WordCloud
-# import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
 
 # from tensorflow.keras.models import load_model
@@ -19,7 +18,7 @@ import spacy
 # module_url = "https://tfhub.dev/google/universal-sentence-encoder/4" 
 # model = hub.load(module_url)
 
-# st.set_option('deprecation.showPyplotGlobalUse', False)
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.title("Text Categorization")
 
@@ -27,10 +26,10 @@ st.write("""
 *Finds topics in Medical/Tech news articles*
 """)
 
-db = pd.read_csv('base_clust.csv')
+db = pd.read_csv('base_clust1.csv')
 # vv = model(db['texto'])
 # vv = np.load('vectores')
-# nlp = spacy.load('en_core_web_sm')
+nlp = spacy.load('en_core_web_sm')
 # texto = ['Malaria has killed millions in Africa']
 
 vectorizer = CountVectorizer(analyzer='word', max_features=2000)
@@ -49,22 +48,26 @@ if texto!='':
 
 # maxi = st.number_input("Enter number of similar documents:",min_value=1, max_value=10, value=3, step=1)
     wtext=[]
-    for i in range(1,6):
-        wtext.append(db.iloc[int(a[-1])]['article'])
+    for i in range(1,4):
+        wtext.append(db.iloc[int(a[-i])]['article'])
         # pp = round(db.iloc[int(a[-i])]['perc'],2)
-        # if pp>.6:
-        st.write(db.iloc[int(a[-i])]['descr'])
+        pp = distance_matrix[int(a[-i])][0]*100
+        # if pp>.5:
+        st.write(db.iloc[int(a[-i])]['original'])
+        # st.write(db.iloc[int(a[-i])]['descr'])
+        st.write(str(round(pp,2))+'%')
     # st.write(db.iloc[a[-i]]['subclas'])
         #  st.write(pp)
-    # wtext = list(set(wtext))
-    # wtext = ' '.join([str(t) for t in wtext])
-    # word_cloud = WordCloud(collocations = False, background_color = 'white').generate(wtext)
-    # plt.imshow(word_cloud, interpolation='bilinear')
-    # plt.axis("off")
-    # plt.show()
-    # st.pyplot()
+    wtext = list(set(wtext))
+    wtext = ' '.join([str(t) for t in wtext])
+    word_cloud = WordCloud(collocations = False, colormap="twilight").generate(wtext)
+
+    plt.imshow(word_cloud, interpolation='bilinear')
+    plt.axis("off")
+    plt.show()
+    st.pyplot()
 
 st.title("Named Entity Recognition")
-# docx = nlp(texto)
-# spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels)
+docx = nlp(texto)
+spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels)
 
