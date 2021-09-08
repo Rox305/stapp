@@ -26,7 +26,9 @@ st.write("""
 *Finds topics in Medical/Tech news articles*
 """)
 
-db = pd.read_csv('base_clust1.csv')
+db = pd.read_csv('base_clust.csv')
+db_ = pd.read_csv('base2.csv')
+
 # vv = model(db['texto'])
 # vv = np.load('vectores')
 nlp = spacy.load('en_core_web_sm')
@@ -53,7 +55,7 @@ if texto!='':
         # pp = round(db.iloc[int(a[-i])]['perc'],2)
         pp = distance_matrix[int(a[-i])][0]*100
         # if pp>.5:
-        st.write(db.iloc[int(a[-i])]['original'])
+        st.write(db_.iloc[int(a[-i])]['original'])
         # st.write(db.iloc[int(a[-i])]['descr'])
         st.write(str(round(pp,2))+'%')
     # st.write(db.iloc[a[-i]]['subclas'])
