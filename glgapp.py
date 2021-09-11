@@ -71,5 +71,5 @@ if texto!='':
 
 st.title("Named Entity Recognition")
 docx = nlp(texto)
-spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels)
+spacy_streamlit.visualize_ner(docx,labels=nlp.get_pipe('ner').labels, show_table=False)
 
