@@ -48,16 +48,16 @@ if texto!='':
 
     a = np.argsort(distance_matrix,0)
 
-# maxi = st.number_input("Enter number of similar documents:",min_value=1, max_value=10, value=3, step=1)
+    maxi = st.number_input("Enter number of similar documents to display:",min_value=1, max_value=10, value=2, step=1)
     wtext=[]
-    for i in range(1,4):
+    for i in range(1,maxi+1):
         wtext.append(db.iloc[int(a[-i])]['article'])
         # pp = round(db.iloc[int(a[-i])]['perc'],2)
         pp = distance_matrix[int(a[-i])][0]*100
         # if pp>.5:
+        st.write('Similarity score: '+str(round(pp,2))+'%')
         st.write(db_.iloc[int(a[-i])]['original'])
         # st.write(db.iloc[int(a[-i])]['descr'])
-        st.write(str(round(pp,2))+'%')
     # st.write(db.iloc[a[-i]]['subclas'])
         #  st.write(pp)
     wtext = list(set(wtext))
